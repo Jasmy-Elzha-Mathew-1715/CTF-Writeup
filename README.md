@@ -1,3 +1,1 @@
 # CTF-Writeup
-jghAHBJNKSLZ;'DX
-]C;[LPKOJNKXMLZ,;
