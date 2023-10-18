@@ -1,0 +1,1 @@
+A networked Password Capture The Flag (CTF) is a type of cybersecurity challenge where participants attempt to recover or "capture" passwords on a networked system. These challenges are designed to test and improve a participant's skills in various aspects of cybersecurity, including penetration testing, password cracking, network analysis, and more.
