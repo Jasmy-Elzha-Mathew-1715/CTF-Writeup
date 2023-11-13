@@ -1,0 +1,26 @@
+A Python script for interacting with a remote server using the pwntools library.
+
+Connecting to a Remote Server:
+The code establishes a connection to a server at the address '202.120.7.212' on port 20001 using the remote function from the pwntools library.
+
+Initial Server Communication:
+It receives and parses some data from the server. It reads values for v and m from the server's response after specific prompts.
+
+Calculations and Sending a Response:
+The code computes res using the values received: res = pow(2, 2 ** v, m). This is a modular exponentiation operation.
+It then sends the computed result back to the server as an answer.
+
+Receiving Data in Blocks:
+The code enters a loop to receive a large block of data in chunks of 0x2000 bytes from the server.
+    * It gathers the received bytes and interprets them as double-precision floating-point values (<d) using struct.unpack.
+    * These values are then processed in blocks of 128 using NumPy's FFT (Fast Fourier Transform) inverse function (np.fft.ifft).
+    * The absolute values of certain elements from the inverse FFT results are calculated and rounded.
+    * These processed values are appended to a list (ans) and then converted to bytes.
+
+Sending the Processed Data:
+Once the data processing is complete, it waits for a specific prompt from the server and sends the computed ans back to the server.
+
+Interactive Mode:
+The script then enters interactive mode, allowing for manual interaction with the server if needed.
+
+This script is likely part of a challenge where the server sends mathematical values, expects certain computations as a response, and then processes and sends back specific data based on the received information. It appears to involve modular exponentiation, FFT, and handling data in a particular format as requested by the server.
